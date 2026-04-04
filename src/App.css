@@ -1,0 +1,122 @@
+/* ============= REVEAL ANIMATION ============= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============= SECTION LABELS ============= */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--accent-green);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+/* ============= CARDS ============= */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.8rem;
+  transition: border-color 0.3s, background 0.3s, transform 0.3s;
+}
+.card:hover {
+  border-color: var(--accent-green);
+  background: var(--bg-card-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--glow-green);
+}
+
+/* ============= BUTTONS ============= */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--accent-green);
+  color: #ffffff;
+  padding: 0.75rem 1.8rem;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 0.3s, transform 0.2s;
+  letter-spacing: 0.05em;
+}
+.btn-primary:hover {
+  box-shadow: var(--glow-green);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: transparent;
+  color: var(--accent-green);
+  padding: 0.75rem 1.8rem;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 1px solid var(--accent-green);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  letter-spacing: 0.05em;
+}
+.btn-outline:hover {
+  background: var(--border-accent);
+  transform: translateY(-2px);
+}
+
+/* ============= TAGS ============= */
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+}
+
+.tag-green {
+  background: #2e7d3215;
+  color: var(--accent-green);
+  border: 1px solid #2e7d3240;
+}
+
+.tag-blue {
+  background: #1976d215;
+  color: var(--accent-blue);
+  border: 1px solid #1976d240;
+}
+
+.tag-purple {
+  background: #7b1fa215;
+  color: var(--accent-purple);
+  border: 1px solid #7b1fa240;
+}
+
+/* ============= DIVIDER ============= */
+.divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-green), transparent);
+  margin: 1rem 0 2rem;
+}

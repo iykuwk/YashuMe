@@ -1,0 +1,215 @@
+.projects-section {
+  padding: 7rem 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.projects-inner { max-width: 1200px; margin: 0 auto; }
+
+.projects-header { margin-bottom: 3.5rem; }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Project Card */
+.project-card {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
+  transform: scaleX(0);
+  transition: transform 0.4s;
+}
+
+.project-card:hover::before,
+.project-card.expanded::before {
+  transform: scaleX(1);
+}
+
+.pc-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.pc-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--bg-card);
+  font-size: 2rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  filter: drop-shadow(0 0 10px rgba(46, 125, 50, 0.2));
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.pc-icon:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(46, 125, 50, 0.12);
+}
+
+.pc-links {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.pc-link-btn {
+  width: 36px; height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.pc-link-btn:hover {
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+  transform: translateY(-2px);
+}
+
+.pc-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.8rem;
+}
+
+.pc-duration {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.pc-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.pc-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent-green);
+  margin-bottom: 0.9rem;
+  letter-spacing: 0.03em;
+}
+
+.pc-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+/* Expanded points */
+.pc-points {
+  list-style: none;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1rem;
+  background: rgba(0, 255, 157, 0.04);
+  border-left: 2px solid var(--accent-green);
+  border-radius: 0 6px 6px 0;
+}
+
+.pc-points li {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.7;
+}
+
+.pc-points li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--accent-green);
+}
+
+.pc-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.pc-toggle {
+  background: none;
+  border: none;
+  color: var(--accent-green);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0;
+  letter-spacing: 0.05em;
+  transition: opacity 0.2s;
+}
+
+.pc-toggle:hover { opacity: 0.7; }
+
+/* CTF Banner */
+.ctf-banner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent-purple);
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+  flex-wrap: wrap;
+}
+
+.ctf-icon { font-size: 2rem; }
+
+.ctf-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.ctf-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.ctf-btn {
+  margin-left: auto;
+  white-space: nowrap;
+  font-size: 0.78rem;
+  padding: 0.6rem 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .projects-grid { grid-template-columns: 1fr; }
+  .ctf-banner { flex-direction: column; align-items: flex-start; }
+  .ctf-btn { margin-left: 0; }
+}

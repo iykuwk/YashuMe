@@ -1,0 +1,198 @@
+.exp-section {
+  padding: 7rem 2rem;
+  background: linear-gradient(180deg, transparent, #f0f2f530 30%, transparent);
+  position: relative;
+  z-index: 1;
+}
+
+.exp-inner { max-width: 1200px; margin: 0 auto; }
+
+.exp-header { margin-bottom: 3.5rem; }
+
+.exp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.col-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(var(--accent-green), var(--accent-blue), transparent);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -1.87rem;
+  top: 1.2rem;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-green);
+  background: var(--bg-primary);
+}
+
+.color-blue .timeline-dot { border-color: var(--accent-blue); }
+
+/* Cards */
+.tc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.tc-meta {
+  display: flex;
+  align-items: center;
+}
+
+.exp-github-link {
+  color: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  width: 100%;
+}
+
+.exp-github-link:hover {
+  color: var(--accent-green);
+}
+
+.tc-role {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.15rem;
+}
+
+.tc-company {
+  font-size: 0.8rem;
+  color: var(--accent-green);
+  font-family: var(--font-mono);
+}
+
+.color-blue .tc-company { color: var(--accent-blue); }
+
+.tc-duration {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  margin-bottom: 0.9rem;
+}
+
+.tc-points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.tc-points li {
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.7;
+}
+
+.tc-points li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--accent-green);
+}
+
+/* Competition card */
+.comp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.comp-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.comp-result {
+  font-size: 0.85rem;
+  color: var(--accent-purple);
+  font-family: var(--font-mono);
+}
+
+.comp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+/* Community */
+.community-section { margin-top: 1.5rem; }
+
+.community-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.comm-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  margin-top: 0.35rem;
+  flex-shrink: 0;
+}
+.comm-dot.green  { background: var(--accent-green); }
+.comm-dot.blue   { background: var(--accent-blue); }
+
+.comm-name {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+}
+
+.comm-role {
+  font-size: 0.75rem;
+  color: var(--accent-green);
+  font-family: var(--font-mono);
+  margin-bottom: 0.2rem;
+}
+
+.comm-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .exp-grid { grid-template-columns: 1fr; }
+}
