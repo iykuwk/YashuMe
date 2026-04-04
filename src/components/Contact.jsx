@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import emailjs from '@emailjs/browser'
 import './Contact.css'
 
@@ -7,6 +7,14 @@ export default function Contact() {
   const [sent, setSent] = useState(false)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+
+  // Initialize EmailJS
+  useEffect(() => {
+    const publicKey = import.meta.env.VITE_PUBLIC_KEY
+    if (publicKey) {
+      emailjs.init(publicKey)
+    }
+  }, [])
 
   const handleChange = e => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
@@ -17,15 +25,29 @@ export default function Contact() {
     setLoading(true)
     setError('')
 
+    // Basic form validation
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+      setError('Please fill in all fields.')
+      setLoading(false)
+      return
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(form.email)) {
+      setError('Please enter a valid email address.')
+      setLoading(false)
+      return
+    }
+
     try {
       // EmailJS configuration from environment variables
       const serviceId = import.meta.env.VITE_SERVICE_ID
       const contactTemplateId = import.meta.env.VITE_TEMPLATE_CONTACT
       const replyTemplateId = import.meta.env.VITE_TEMPLATE_REPLY
-      const publicKey = import.meta.env.VITE_PUBLIC_KEY
 
-      if (!serviceId || !contactTemplateId || !replyTemplateId || !publicKey) {
-        throw new Error('EmailJS configuration missing. Please set up your .env file.')
+      if (!serviceId || !contactTemplateId || !replyTemplateId) {
+        throw new Error('EmailJS configuration missing. Please check your .env file.')
       }
 
       // Send contact email to you
@@ -36,7 +58,7 @@ export default function Contact() {
         to_email: 'zingadeyashodhan@gmail.com'
       }
 
-      await emailjs.send(serviceId, contactTemplateId, contactParams, publicKey)
+      await emailjs.send(serviceId, contactTemplateId, contactParams)
 
       // Send auto-reply to visitor
       const replyParams = {
@@ -45,7 +67,7 @@ export default function Contact() {
         from_name: 'Yashodhan Zingade'
       }
 
-      await emailjs.send(serviceId, replyTemplateId, replyParams, publicKey)
+      await emailjs.send(serviceId, replyTemplateId, replyParams)
 
       setSent(true)
       setForm({ name: '', email: '', message: '' })
@@ -53,7 +75,18 @@ export default function Contact() {
 
     } catch (err) {
       console.error('Email send failed:', err)
-      setError('Failed to send message. Please try again or contact me directly at zingadeyashodhan@gmail.com')
+
+      // Provide user-friendly error messages
+      let errorMessage = 'Failed to send message. '
+      if (err.text?.includes('rate limit')) {
+        errorMessage += 'Too many requests. Please try again later.'
+      } else if (err.text?.includes('invalid')) {
+        errorMessage += 'Invalid configuration. Please contact the administrator.'
+      } else {
+        errorMessage += 'Please try again or contact me directly at zingadeyashodhan@gmail.com'
+      }
+
+      setError(errorMessage)
 
       // Fallback to mailto if EmailJS fails
       setTimeout(() => {
