@@ -99,7 +99,7 @@ export default function Experience() {
           <div className="exp-column">
             <h3 className="col-title reveal">Competitions</h3>
             {competitions.map((comp, i) => (
-              <div key={i} className="comp-card card reveal">
+              <div key={comp.title} className="comp-card card reveal">
                 <div className="comp-header">
                   <div>
                     <h4 className="comp-title">{comp.title}</h4>
@@ -126,7 +126,9 @@ export default function Experience() {
               <div className="community-item">
                 <div className="comm-dot green" />
                 <div>
-                  <p className="comm-name">Community Of Coders, VJTI</p>
+                  <p className="comm-name">
+                    <a href="https://communityofcoders.in/" target="_blank" rel="noreferrer" className="comm-link">Community Of Coders, VJTI</a>
+                  </p>
                   <p className="comm-role">Mentee (2023) → Maintainer (2024)</p>
                   <p className="comm-desc">Held workshops on Git/GitHub, mentored junior developers</p>
                 </div>

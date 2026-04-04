@@ -20,22 +20,32 @@ export default function App() {
     const follower = followerRef.current
     let mouseX = 0, mouseY = 0
     let followerX = 0, followerY = 0
+    let animationFrameId = null
+
+    // Disable cursor effects on mobile devices
+    const isMobile = window.matchMedia('(max-width: 768px)').matches
 
     const moveCursor = (e) => {
-      mouseX = e.clientX
-      mouseY = e.clientY
-      cursor.style.transform = `translate(${mouseX - 6}px, ${mouseY - 6}px)`
+      if (!isMobile) {
+        mouseX = e.clientX
+        mouseY = e.clientY
+        cursor.style.transform = `translate(${mouseX - 6}px, ${mouseY - 6}px)`
+      }
     }
 
     const animateFollower = () => {
-      followerX += (mouseX - followerX - 18) * 0.12
-      followerY += (mouseY - followerY - 18) * 0.12
-      follower.style.transform = `translate(${followerX}px, ${followerY}px)`
-      requestAnimationFrame(animateFollower)
+      if (!isMobile) {
+        followerX += (mouseX - followerX - 18) * 0.12
+        followerY += (mouseY - followerY - 18) * 0.12
+        follower.style.transform = `translate(${followerX}px, ${followerY}px)`
+        animationFrameId = requestAnimationFrame(animateFollower)
+      }
     }
 
-    window.addEventListener('mousemove', moveCursor)
-    animateFollower()
+    if (!isMobile) {
+      window.addEventListener('mousemove', moveCursor)
+      animateFollower()
+    }
 
     // Reveal on scroll
     const observer = new IntersectionObserver((entries) => {
@@ -48,8 +58,13 @@ export default function App() {
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
 
+    // Cleanup function
     return () => {
       window.removeEventListener('mousemove', moveCursor)
+      if (animationFrameId !== null) {
+        cancelAnimationFrame(animationFrameId)
+      }
+      observer.disconnect()
     }
   }, [])
 

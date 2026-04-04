@@ -3,7 +3,7 @@
   padding: 3rem 2rem 1.5rem;
   position: relative;
   z-index: 1;
-  background: #ffffff;
+  background: #191a1b;
 }
 
 .footer-inner {
@@ -23,6 +23,7 @@
   font-weight: 800;
   display: block;
   margin-bottom: 0.4rem;
+  color: var(--footer-logo-color, #7dd3fc);
 }
 
 .bracket { color: var(--text-muted); }
@@ -47,7 +48,7 @@
   margin-bottom: 0.3rem;
 }
 
-.heart { color: #ff5f57; }
+.heart { color: #df4239; }
 
 .tech-tag {
   color: var(--accent-green);

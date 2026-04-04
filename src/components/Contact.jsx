@@ -12,7 +12,7 @@ export default function Contact() {
   const handleSubmit = e => {
     e.preventDefault()
     // Opens mailto as a fallback (real implementation would use EmailJS/Formspree)
-    const mailtoLink = `mailto:yashodhan@example.com?subject=Portfolio Contact from ${form.name}&body=${encodeURIComponent(form.message + '\n\nFrom: ' + form.email)}`
+    const mailtoLink = `mailto:zingadeyashodhan@gmail.com?subject=Portfolio Contact from ${form.name}&body=${encodeURIComponent(form.message + '\n\nFrom: ' + form.email)}`
     window.open(mailtoLink)
     setSent(true)
     setTimeout(() => setSent(false), 4000)

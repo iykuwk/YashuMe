@@ -30,6 +30,14 @@ export function ThemeProvider({ children }) {
         '--border-accent': '#2e7d3220',
         '--glow-green': '0 0 20px #2e7d3233',
         '--glow-blue': '0 0 20px #1976d233',
+        '--form-header-bg': '#dfe6fc',
+        '--form-input-bg': '#f8f4f4',
+        '--form-input-border': '#e0e0e0',
+        '--form-input-color': '#1a1a1a',
+        '--form-input-placeholder': '#999999',
+        '--form-input-focus-shadow': '0 0 0 4px #2e7d3215',
+        '--navbar-scrolled-bg': 'rgba(248, 249, 250, 0.95)',
+        '--footer-logo-color': '#7dd3fc',
       },
       dark: {
         '--bg-primary': '#050508',
@@ -46,6 +54,14 @@ export function ThemeProvider({ children }) {
         '--border-accent': '#00ff9d33',
         '--glow-green': '0 0 20px #00ff9d44',
         '--glow-blue': '0 0 20px #00cfff44',
+        '--form-header-bg': '#031144',
+        '--form-input-bg': '#f8f4f4',
+        '--form-input-border': '#d0d4e6',
+        '--form-input-color': '#1a1a1a',
+        '--form-input-placeholder': '#777777',
+        '--form-input-focus-shadow': '0 0 0 4px rgba(0, 255, 157, 0.18)',
+        '--navbar-scrolled-bg': 'rgba(5, 5, 8, 0)',
+        '--footer-logo-color': '#7dd3fc',
       }
     }
 
