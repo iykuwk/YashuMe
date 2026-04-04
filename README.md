@@ -24,7 +24,13 @@ npm run preview
 
 ---
 
-## 🗂️ Project Structure
+## 📧 Contact Form
+
+The contact form is fully configured with EmailJS for direct email delivery to your inbox, including auto-reply functionality for visitors.
+
+---
+
+## �🗂️ Project Structure
 
 ```
 YashuMe/
@@ -57,7 +63,7 @@ YashuMe/
 
 1. **Update your real links** in `Navbar.jsx`, `Hero.jsx`, `Contact.jsx`, and `Footer.jsx` — replace the placeholder GitHub, LinkedIn, and email URLs.
 2. **Resume link** — Update the Google Drive / resume URL in `Navbar.jsx`.
-3. **Contact form** — Integrate [EmailJS](https://emailjs.com) or [Formspree](https://formspree.io) in `Contact.jsx` for working form submissions.
+3. **Resume link** — Update the Google Drive / resume URL in `Navbar.jsx`.
 4. **Add profile photo** — Place your image in `/public/` and add an `<img>` tag in the Hero or About section.
 
 ---

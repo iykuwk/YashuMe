@@ -1,22 +1,68 @@
 import { useState } from 'react'
+import emailjs from '@emailjs/browser'
 import './Contact.css'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [sent, setSent] = useState(false)
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const handleChange = e => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault()
-    // Opens mailto as a fallback (real implementation would use EmailJS/Formspree)
-    const mailtoLink = `mailto:zingadeyashodhan@gmail.com?subject=Portfolio Contact from ${form.name}&body=${encodeURIComponent(form.message + '\n\nFrom: ' + form.email)}`
-    window.open(mailtoLink)
-    setSent(true)
-    setTimeout(() => setSent(false), 4000)
-    setForm({ name: '', email: '', message: '' })
+    setLoading(true)
+    setError('')
+
+    try {
+      // EmailJS configuration from environment variables
+      const serviceId = import.meta.env.VITE_SERVICE_ID
+      const contactTemplateId = import.meta.env.VITE_TEMPLATE_CONTACT
+      const replyTemplateId = import.meta.env.VITE_TEMPLATE_REPLY
+      const publicKey = import.meta.env.VITE_PUBLIC_KEY
+
+      if (!serviceId || !contactTemplateId || !replyTemplateId || !publicKey) {
+        throw new Error('EmailJS configuration missing. Please set up your .env file.')
+      }
+
+      // Send contact email to you
+      const contactParams = {
+        from_name: form.name,
+        from_email: form.email,
+        message: form.message,
+        to_email: 'zingadeyashodhan@gmail.com'
+      }
+
+      await emailjs.send(serviceId, contactTemplateId, contactParams, publicKey)
+
+      // Send auto-reply to visitor
+      const replyParams = {
+        to_name: form.name,
+        to_email: form.email,
+        from_name: 'Yashodhan Zingade'
+      }
+
+      await emailjs.send(serviceId, replyTemplateId, replyParams, publicKey)
+
+      setSent(true)
+      setForm({ name: '', email: '', message: '' })
+      setTimeout(() => setSent(false), 4000)
+
+    } catch (err) {
+      console.error('Email send failed:', err)
+      setError('Failed to send message. Please try again or contact me directly at zingadeyashodhan@gmail.com')
+
+      // Fallback to mailto if EmailJS fails
+      setTimeout(() => {
+        const mailtoLink = `mailto:zingadeyashodhan@gmail.com?subject=Portfolio Contact from ${form.name}&body=${encodeURIComponent(form.message + '\n\nFrom: ' + form.email)}`
+        window.open(mailtoLink)
+      }, 2000)
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -134,9 +180,15 @@ export default function Contact() {
                 />
               </div>
 
-              <button type="submit" className="btn-primary form-submit">
-                {sent ? '✅ Message Sent!' : 'Send Message →'}
+              <button type="submit" className="btn-primary form-submit" disabled={loading}>
+                {loading ? '⏳ Sending...' : sent ? '✅ Message Sent!' : 'Send Message →'}
               </button>
+
+              {error && (
+                <div className="form-error">
+                  <p>❌ {error}</p>
+                </div>
+              )}
             </div>
           </form>
         </div>
