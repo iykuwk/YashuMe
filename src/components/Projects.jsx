@@ -64,36 +64,43 @@ export default function Projects() {
             >
               {/* Top row */}
               <div className="pc-top">
-                <a
-                  href={proj.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="pc-icon"
-                  title="View GitHub repository"
-                  onClick={e => e.stopPropagation()}
-                  aria-label="View GitHub repository"
-                >
+                <div className="pc-icon">
                   {proj.icon}
-                </a>
-                <div className="pc-links">
-                  <a
-                    href={proj.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    onClick={e => e.stopPropagation()}
-                    aria-label="GitHub"
-                    className="pc-link-btn"
-                  >
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-                    </svg>
-                  </a>
                 </div>
+                {proj.id !== 1 && proj.id !== 2 && (
+                  <div className="pc-links">
+                    <a
+                      href={proj.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={e => e.stopPropagation()}
+                      aria-label="GitHub"
+                      className="pc-link-btn"
+                    >
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                      </svg>
+                    </a>
+                  </div>
+                )}
               </div>
 
               {/* Badges */}
               <div className="pc-badges">
-                <span className={`tag tag-${proj.statusColor}`}>{proj.status}</span>
+                {proj.id === 1 || proj.id === 2 ? (
+                  <a
+                    href={proj.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`tag tag-${proj.statusColor}`}
+                    onClick={e => e.stopPropagation()}
+                    aria-label={`View ${proj.title} on GitHub`}
+                  >
+                    {proj.status}
+                  </a>
+                ) : (
+                  <span className={`tag tag-${proj.statusColor}`}>{proj.status}</span>
+                )}
                 <span className="pc-duration">{proj.duration}</span>
               </div>
 
