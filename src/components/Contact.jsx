@@ -133,7 +133,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="cli-label">Phone</p>
-                <p className="cli-value">+91 81494 14692</p>
+                <p className="cli-value">+91 81494 *****</p>
               </div>
             </a>
 
@@ -159,7 +159,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="cli-label">GitHub</p>
-                <p className="cli-value">github.com/yashodhan</p>
+                <p className="cli-value">github.com/iykuwk</p>
               </div>
             </a>
           </div>
