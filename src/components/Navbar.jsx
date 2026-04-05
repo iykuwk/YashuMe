@@ -50,7 +50,7 @@ export default function Navbar() {
           ))}
           <li>
             <a
-              href="https://drive.google.com/drive/u/2/folders/1M4Z-aHav5Uhmv_5vxVKZtt7tTZo4APly"
+              href="/certificates/Yashodhan_Resume.pdf"
               target="_blank"
               rel="noreferrer"
               className="nav-resume-btn"
