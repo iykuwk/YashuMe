@@ -42,6 +42,36 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
   cursor: none;
+  touch-action: manipulation;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+img, picture, video, svg, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  body {
+    cursor: default;
+  }
+  .cursor,
+  .cursor-follower {
+    display: none;
+  }
+  .nav-inner {
+    padding: 0 1rem;
+  }
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .hero {
+    padding: 4.5rem 1rem 3rem;
+  }
 }
 
 /* Custom cursor */
