@@ -14,6 +14,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const { theme, toggleTheme } = useTheme()
+  const [resumeOpen, setResumeOpen] = useState(false)
 
   useEffect(() => {
     let timeoutId
@@ -49,16 +50,43 @@ export default function Navbar() {
             </li>
           ))}
           <li>
-            <a
-              href="/certificates/Yashodhan_Resume.pdf"
-              target="_blank"
-              rel="noreferrer"
-              className="nav-resume-btn"
-            >
-              Resume ↗
-            </a>
-          </li>
-          <li>
+            <li className="nav-resume">
+              <div className="resume-wrapper">
+                <button
+                  type="button"
+                  className="nav-resume-btn"
+                  onClick={() => setResumeOpen(!resumeOpen)}
+                  aria-haspopup="menu"
+                  aria-expanded={resumeOpen}
+                >
+                  Resume ↗
+                </button>
+                {resumeOpen && (
+                  <ul className="resume-menu">
+                    <li>
+                      <a
+                        href="/certificates/Software_Core.pdf"
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={() => setResumeOpen(false)}
+                      >
+                        Software
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/certificates/Electrical_core.pdf"
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={() => setResumeOpen(false)}
+                      >
+                        Electrical
+                      </a>
+                    </li>
+                  </ul>
+                )}
+              </div>
+            </li>
             <button
               className="theme-toggle"
               onClick={toggleTheme}

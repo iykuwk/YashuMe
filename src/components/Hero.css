@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6rem 2rem 4rem;
+  padding: 6rem 2rem 6.5rem;
   position: relative;
   overflow: hidden;
 }
@@ -39,6 +39,20 @@
   align-items: center;
   position: relative;
   z-index: 1;
+}
+
+/* Profile photo placed above greeting */
+.profile-photo-wrapper {
+  margin-bottom: 1rem;
+}
+.profile-photo {
+  width: 180px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid var(--border);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+  display: block;
 }
 
 /* Content */
