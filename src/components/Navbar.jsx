@@ -36,7 +36,7 @@ export default function Navbar() {
       <div className="nav-inner">
         <a href="#hero" className="nav-logo">
           <span className="logo-bracket">[</span>
-          <span className="logo-name">Yashu</span>
+          <span className="logo-name">Hi! Yash Here</span>
           <span className="logo-bracket">]</span>
           <span className="logo-cursor">_</span>
         </a>
