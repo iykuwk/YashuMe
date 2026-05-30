@@ -49,7 +49,7 @@ export default function Hero() {
       <div className="hero-inner">
         <div className="hero-content fade-in">
           <div className="profile-photo-wrapper">
-            <img src="/certificates/Profile_photo.jpeg" alt="Profile photo" className="profile-photo" />
+            <img src="/certificates/Profile_photo.jpg" alt="Profile photo" className="profile-photo" />
           </div>
 
           <p className="hero-greeting">
