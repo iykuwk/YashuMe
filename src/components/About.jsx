@@ -3,7 +3,7 @@ import './About.css'
 const stats = [
   { value: '8.36', label: 'CGPA' },
   { value: '3+', label: 'Projects' },
-  { value: '2', label: 'Internships' },
+  { value: '3', label: 'Internships' },
   { value: '2nd', label: 'Place @ Inheritance' },
 ]
 
@@ -12,7 +12,6 @@ export default function About() {
     <section id="about" className="about-section">
       <div className="about-inner">
         <div className="about-text reveal">
-          <p className="section-label">// 01. About Me</p>
           <h2 className="section-title">Who Am I?</h2>
           <div className="divider" />
 

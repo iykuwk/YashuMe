@@ -2,8 +2,20 @@ import './Experience.css'
 
 const experiences = [
   {
+    role: 'OT/ICS Security Intern',
+    company: 'COE-CNDS, Mumbai',
+    duration: 'Jun 2026 - Aug 2026',
+    type: 'Confidential',
+    color: 'purple',
+    github: '/certificates/Software_Core.pdf',
+    points: [
+      'Built 10+ ICS/OT threat-detection workflows with Suricata, Malcolm, and CALDERA, aligned to MITRE ATT&CK for ICS.',
+      'Investigated 50+ security events and synthesized 30+ papers, building applied expertise in AI/ML for OT/ICS.',
+    ],
+  },
+  {
     role: 'Heavy Electricals Intern',
-    company: 'Ashvee Electricals',
+    company: 'Ashvee Electricals, Pune',
     duration: 'Dec 2025 — Jan 2026',
     type: 'Internship',
     color: 'blue',
@@ -46,7 +58,6 @@ export default function Experience() {
     <section id="experience" className="exp-section">
       <div className="exp-inner">
         <div className="exp-header reveal">
-          <p className="section-label">// 02. Experience</p>
           <h2 className="section-title">Where I've Worked</h2>
           <div className="divider" />
         </div>

@@ -20,16 +20,16 @@ const skillGroups = [
     skills: ['Kali Linux', 'Git', 'MATLAB', 'PEStudio', 'ProcessHacker', 'Simulink', 'x64dbg', 'IPFS'],
   },
   {
-    category: 'Libraries',
+    category: 'AI/ML Concepts',
     icon: '📦',
     color: 'green',
-    skills: ['Clang', 'NumPy', 'React.js', 'Node.js'],
+    skills: ['RAG', 'LLMs', 'Llama', 'CNN-LSTM', 'Reinforcement Learning', 'Transfer Learning', 'XAI'],
   },
   {
-    category: 'Developer Tools',
+    category: 'OT/ICS Security',
     icon: '🛠️',
     color: 'blue',
-    skills: ['VS Code', 'MS Visual Studio 2022', 'IPFS', 'SQLMap', 'FFUF', 'Simulink', 'x64dbg'],
+    skills: ['Suricata', 'Malcolm', 'CALDERA', 'MITRE ATT&CK for ICS', 'ICS/OT Monitoring', 'Alert Triage'],
   },
   {
     category: 'Security Expertise',
@@ -50,7 +50,6 @@ export default function Skills() {
     <section id="skills" className="skills-section">
       <div className="skills-inner">
         <div className="skills-header reveal">
-          <p className="section-label">// 04. Skills</p>
           <h2 className="section-title">Tech Arsenal</h2>
           <div className="divider" />
         </div>
@@ -79,24 +78,24 @@ export default function Skills() {
 
         {/* Proficiency highlights */}
         <div className="prof-section reveal">
-          <h3 className="prof-title">Core Proficiencies</h3>
+          <h3 className="prof-title">Core Proficiencies /10</h3>
           <div className="prof-bars">
             {[
-              { label: 'Cybersecurity & Pentesting', val: 82 },
-              { label: 'Blockchain / Solidity', val: 78 },
-              { label: 'C / C++ / Win32 API', val: 75 },
-              { label: 'Python & Scripting', val: 80 },
-              { label: 'Web Development', val: 70 },
+              { label: 'Cybersecurity & Pentesting', val: 8.2 },
+              { label: 'Blockchain / Solidity', val: 7.8 },
+              { label: 'C / C++ / Win32 API', val: 7.5 },
+              { label: 'Python & Scripting', val: 8.0 },
+              { label: 'Web Development', val: 7.0 },
             ].map(item => (
               <div key={item.label} className="prof-bar-item">
                 <div className="prof-bar-label">
                   <span>{item.label}</span>
-                  <span className="prof-val">{item.val}%</span>
+                  <span className="prof-val">{item.val}/10</span>
                 </div>
                 <div className="prof-bar-track">
                   <div
                     className="prof-bar-fill"
-                    style={{ '--target': `${item.val}%` }}
+                    style={{ '--target': item.val }}
                   />
                 </div>
               </div>

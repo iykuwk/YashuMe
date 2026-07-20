@@ -7,6 +7,7 @@ const roles = [
   'Blockchain Developer',
   'Malware Researcher',
   'CTF Player',
+  'OT/ICS Security Pentester',
 ]
 
 export default function Hero() {
@@ -49,7 +50,7 @@ export default function Hero() {
       <div className="hero-inner">
         <div className="hero-content fade-in">
           <div className="profile-photo-wrapper">
-            <img src="/certificates/Profile_photo.jpeg" alt="Profile photo" className="profile-photo" />
+            <img src="/certificates/profile_photo.png" alt="Profile photo" className="profile-photo" />
           </div>
 
           <p className="hero-greeting">
@@ -103,7 +104,7 @@ export default function Hero() {
         <div className="hero-terminal animate-float">
           <div className="terminal-header">
             <span className="t-dot red" /><span className="t-dot yellow" /><span className="t-dot green" />
-            <span className="t-title">yashu@vjti: ~</span>
+            <span className="t-title">yashodhan@vjti: </span>
           </div>
           <div className="terminal-body">
             <div className="t-line"><span className="t-cmd">whoami</span></div>

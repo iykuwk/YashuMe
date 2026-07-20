@@ -85,7 +85,7 @@
 
 .prof-bar-fill {
   height: 100%;
-  width: var(--target);
+  width: calc(var(--target) * 10%);
   background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
   border-radius: 99px;
   animation: growBar 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -94,7 +94,7 @@
 
 @keyframes growBar {
   from { width: 0; }
-  to   { width: var(--target); }
+  to   { width: calc(var(--target) * 10%); }
 }
 
 @media (max-width: 900px) {

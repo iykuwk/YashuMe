@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="footer-inner">
         <div className="footer-left">
           <span className="footer-logo">
-            <span className="bracket">[</span>Yashu<span className="bracket">]</span>
+            <span className="bracket">[</span>Yashodhan<span className="bracket">]</span>
             <span className="cursor-blink">_</span>
           </span>
           <p className="footer-tagline">

@@ -80,6 +80,9 @@
   font-family: var(--font-mono);
 }
 
+.cert-badge-link { margin-left: auto; display: inline-flex; align-items: center; }
+.cert-badge-img { width: 72px; height: auto; display: block; border-radius: 6px; }
+
 @media (max-width: 768px) {
   .certs-grid {
     grid-template-columns: 1fr;

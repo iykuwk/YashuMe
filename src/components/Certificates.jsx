@@ -25,6 +25,17 @@ const certs = [
     desc: 'Comprehensive exploration of blockchain technology fundamentals, Ethereum platform architecture, smart contract development, and decentralized application ecosystems.',
     image: '/certificates/Blockchain_n_Ethereum.jpg',
   },
+  {
+    title: 'EthicalHacker-Cisco',
+    issuer: 'Cisco',
+    icon: '🛡️',
+    color: 'green',
+    desc: 'Cisco Ethical Hacking credential covering penetration testing methodologies, vulnerability assessment, and defensive best practices.',
+    // PDF is available at /certificates/EthicalHacker-Cisco.pdf
+    image: '/certificates/EthicalHacker-Cisco.jpg',
+    badgeUrl: 'https://www.credly.com/badges/30c58eef-461d-4221-ba22-84ab598c88e7/linked_in_profile',
+    badgeImage: '/certificates/badges/ethicalhacker-cisco-badge.svg',
+  },
 ]
 
 export default function Certificates() {
@@ -32,7 +43,6 @@ export default function Certificates() {
     <section id="certificates" className="certs-section">
       <div className="certs-inner">
         <div className="certs-header reveal">
-          <p className="section-label">// 05. Certifications</p>
           <h2 className="section-title">Courses & Certs</h2>
           <div className="divider" />
         </div>
@@ -52,7 +62,13 @@ export default function Certificates() {
               
               <div className="cert-top">
                 <span className="cert-icon">{cert.icon}</span>
-                <span className={`tag tag-${cert.color}`}>{cert.issuer}</span>
+                {cert.badgeUrl ? (
+                  <a href={cert.badgeUrl} target="_blank" rel="noreferrer" className={`tag tag-${cert.color}`}>
+                    {cert.issuer}
+                  </a>
+                ) : (
+                  <span className={`tag tag-${cert.color}`}>{cert.issuer}</span>
+                )}
               </div>
               <h3 className="cert-title">{cert.title}</h3>
               <p className="cert-desc">{cert.desc}</p>
@@ -63,6 +79,7 @@ export default function Certificates() {
                   <path d="m9 12 2 2 4-4"/>
                 </svg>
                 <span>Verified Certificate</span>
+                {/* Badge image removed; issuer now links to badge when available */}
               </div>
             </div>
           ))}

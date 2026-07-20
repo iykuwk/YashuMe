@@ -69,7 +69,6 @@ export default function Projects() {
     <section id="projects" className="projects-section">
       <div className="projects-inner">
         <div className="projects-header reveal">
-          <p className="section-label">// 03. Projects</p>
           <h2 className="section-title">Things I've Built</h2>
           <div className="divider" />
         </div>
