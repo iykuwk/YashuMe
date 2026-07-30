@@ -41,6 +41,16 @@ const experiences = [
 
 const competitions = [
   {
+    title: 'Smart India Hackathon (SIH) — Platform',
+    result: 'Project',
+    duration: 'Dec 2024',
+    tech: ['Ethereum', 'Blockchain', 'Machine Learning', 'Full Stack'],
+    points: [
+      'Engineered a secure digital transaction platform with a scalable backend architecture using Ethereum and blockchain, integrating frontend, backend, and distributed systems for secure data flow.',
+      'Optimized system performance to achieve 110 transactions per second (TPS) with an average transaction latency of 12 seconds.',
+    ],
+  },
+  {
     title: 'Inheritance 2024',
     result: '🥈 2nd Place',
     duration: 'Jan 2024 — Mar 2024',
