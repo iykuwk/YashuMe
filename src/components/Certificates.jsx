@@ -1,4 +1,5 @@
 import './Certificates.css'
+import { CERTIFICATE_PATHS } from '../constants'
 
 const certs = [
   {
@@ -7,7 +8,7 @@ const certs = [
     icon: '⛓️',
     color: 'purple',
     desc: 'In-depth study of blockchain architecture, consensus mechanisms, distributed ledger technology, and decentralized application design patterns.',
-    image: '/certificates/Coursera_Blockchain.jpg',
+    image: CERTIFICATE_PATHS.courseraBlockchain,
   },
   {
     title: 'Introduction to Cyber Attacks',
@@ -15,7 +16,7 @@ const certs = [
     icon: '🔐',
     color: 'green',
     desc: 'Comprehensive overview of cyber attack types, threat modeling, vulnerability identification, and foundational principles of information security.',
-    image: '/certificates/Coursera_Cyber_Attacks.jpg',
+    image: CERTIFICATE_PATHS.cyberAttacks,
   },
   {
     title: 'Blockchain and Ethereum',
@@ -23,7 +24,7 @@ const certs = [
     icon: '⛓️',
     color: 'blue',
     desc: 'Comprehensive exploration of blockchain technology fundamentals, Ethereum platform architecture, smart contract development, and decentralized application ecosystems.',
-    image: '/certificates/Blockchain_n_Ethereum.jpg',
+    image: CERTIFICATE_PATHS.blockchainEthereum,
   },
   {
     title: 'EthicalHacker-Cisco',
@@ -31,10 +32,9 @@ const certs = [
     icon: '🛡️',
     color: 'green',
     desc: 'Cisco Ethical Hacking credential covering penetration testing methodologies, vulnerability assessment, and defensive best practices.',
-    // PDF is available at /certificates/EthicalHacker-Cisco.pdf
-    image: '/certificates/EthicalHacker-Cisco.jpg',
+    image: CERTIFICATE_PATHS.ethicalHacker,
     badgeUrl: 'https://www.credly.com/badges/30c58eef-461d-4221-ba22-84ab598c88e7/linked_in_profile',
-    badgeImage: '/certificates/badges/ethicalhacker-cisco-badge.svg',
+    badgeImage: CERTIFICATE_PATHS.ethicalHackerBadge,
   },
 ]
 

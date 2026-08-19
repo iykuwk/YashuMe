@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { CERTIFICATE_PATHS } from '../constants'
 import './Projects.css'
 
 const projects = [
@@ -93,7 +94,7 @@ export default function Projects() {
                 {/* If this is the LiFi project, link the Completed tag to the PDF */}
                 {proj.title && proj.title.toLowerCase().includes('lifi') ? (
                   <a
-                    href="/certificates/LIFI%20APPLICATIONS.pdf"
+                    href={CERTIFICATE_PATHS.lifiApplicationsPdf}
                     target="_blank"
                     rel="noreferrer"
                     className={`tag tag-${proj.statusColor}`}

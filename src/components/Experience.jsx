@@ -1,4 +1,5 @@
 import './Experience.css'
+import { CERTIFICATE_PATHS } from '../constants'
 
 const experiences = [
   {
@@ -7,7 +8,7 @@ const experiences = [
     duration: 'Jun 2026 - Aug 2026',
     type: 'Confidential',
     color: 'purple',
-    github: '/certificates/Software_Core.pdf',
+    github: CERTIFICATE_PATHS.softwareCorePdf,
     points: [
       'Built 10+ ICS/OT threat-detection workflows with Suricata, Malcolm, and CALDERA, aligned to MITRE ATT&CK for ICS.',
       'Investigated 50+ security events and synthesized 30+ papers, building applied expertise in AI/ML for OT/ICS.',
