@@ -27,6 +27,24 @@ const certs = [
     image: CERTIFICATE_PATHS.blockchainEthereum,
   },
   {
+    title: 'TryHackMe Certificate #1',
+    issuer: 'TryHackMe',
+    icon: '🧠',
+    color: 'purple',
+    desc: 'TryHackMe certificate showcasing practical security learning and hands-on challenge completion.',
+    image: CERTIFICATE_PATHS.thmCertificate0,
+    badgeUrl: 'https://www.credly.com/badges/f0e16e32-d7a7-4add-a343-c78bee67c8f0/',
+  },
+  {
+    title: 'TryHackMe Certificate #2',
+    issuer: 'TryHackMe',
+    icon: '⚔️',
+    color: 'blue',
+    desc: 'Second TryHackMe credential highlighting continued cyber security learning and challenge-based validation.',
+    image: CERTIFICATE_PATHS.thmCertificate1,
+    badgeUrl: 'https://www.credly.com/badges/b800a2b6-a5d4-494e-84d0-a51866244429/',
+  },
+  {
     title: 'EthicalHacker-Cisco',
     issuer: 'Cisco',
     icon: '🛡️',
@@ -37,6 +55,12 @@ const certs = [
     badgeImage: CERTIFICATE_PATHS.ethicalHackerBadge,
   },
 ]
+
+const openBadge = (url) => {
+  if (url) {
+    window.open(url, '_blank', 'noopener,noreferrer')
+  }
+}
 
 export default function Certificates() {
   return (
@@ -53,23 +77,40 @@ export default function Certificates() {
               key={cert.title}
               className={`cert-card card reveal border-${cert.color}`}
               style={{ transitionDelay: `${i * 0.1}s` }}
+              onClick={() => openBadge(cert.badgeUrl)}
+              onKeyDown={(e) => {
+                if ((e.key === 'Enter' || e.key === ' ') && cert.badgeUrl) {
+                  e.preventDefault()
+                  openBadge(cert.badgeUrl)
+                }
+              }}
+              role={cert.badgeUrl ? 'link' : 'article'}
+              tabIndex={cert.badgeUrl ? 0 : -1}
+              aria-label={cert.badgeUrl ? `Open ${cert.title} certificate badge` : cert.title}
             >
               {cert.image && (
                 <div className="cert-image-container">
                   <img src={cert.image} alt={cert.title} className="cert-image" loading="lazy" />
                 </div>
               )}
-              
+
               <div className="cert-top">
                 <span className="cert-icon">{cert.icon}</span>
                 {cert.badgeUrl ? (
-                  <a href={cert.badgeUrl} target="_blank" rel="noreferrer" className={`tag tag-${cert.color}`}>
+                  <a
+                    href={cert.badgeUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`tag tag-${cert.color}`}
+                    onClick={(e) => e.stopPropagation()}
+                  >
                     {cert.issuer}
                   </a>
                 ) : (
                   <span className={`tag tag-${cert.color}`}>{cert.issuer}</span>
                 )}
               </div>
+
               <h3 className="cert-title">{cert.title}</h3>
               <p className="cert-desc">{cert.desc}</p>
 
@@ -79,7 +120,6 @@ export default function Certificates() {
                   <path d="m9 12 2 2 4-4"/>
                 </svg>
                 <span>Verified Certificate</span>
-                {/* Badge image removed; issuer now links to badge when available */}
               </div>
             </div>
           ))}
