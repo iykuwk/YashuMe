@@ -60,6 +60,25 @@ const projects = [
     icon: '💡',
     featured: true,
   },
+  {
+    id: 4,
+    title: 'AI-RAG cybersecurity System for OT/ICS',
+    subtitle: 'Operational Technology Security Intelligence',
+    status: 'Completed',
+    statusColor: 'green',
+    duration: 'Aug 2025 — Present',
+    description:
+      'An AI-powered cyber defense platform for OT/ICS environments that uses retrieval-augmented generation to help analyze threats, investigate anomalies, and surface actionable security insights from operational technology data.',
+    tech: ['RAGFlow', 'LLMs', 'Elasticsearch', 'Python', 'FastAPI', 'Cybersecurity'],
+    points: [
+      'Built a retrieval-augmented cybersecurity assistant tailored for OT/ICS environments to synthesize threat intelligence and asset context.',
+      'Integrated LLM-driven reasoning with indexed security knowledge and operational telemetry for faster investigation workflows.',
+      'Used Elasticsearch to enable scalable document retrieval, context search, and analyst-friendly security querying across large OT datasets.',
+    ],
+    icon: '🛠️',
+    featured: true,
+    github: 'https://github.com/iykuwk/AI-Cybersecurity-RAG-System',
+  },
 ]
 
 export default function Projects() {
@@ -86,7 +105,18 @@ export default function Projects() {
                 <div className="pc-icon">
                   {proj.icon}
                 </div>
-                {/* Git buttons removed as requested */}
+                {proj.github && (
+                  <a
+                    href={proj.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn-outline ctf-btn"
+                    onClick={e => e.stopPropagation()}
+                    aria-label={`Open GitHub for ${proj.title}`}
+                  >
+                    GitHub ↗
+                  </a>
+                )}
               </div>
 
               {/* Badges */}

@@ -16,7 +16,7 @@ export default function About() {
           <div className="divider" />
 
           <p className="about-desc">
-            I'm <strong>Yashodhan Zingade</strong>, a 3rd-year Electrical Engineering student
+            I'm <strong>Yashodhan Zingade</strong>, an Electrical Engineering student
             at <span className="highlight">VJTI Mumbai</span> (CGPA: 8.36). My world sits at the
             crossroads of hardware fundamentals and software security — I reverse-engineer malware
             by day and build blockchain dApps by night.
@@ -45,7 +45,7 @@ export default function About() {
             </div>
             <div className="meta-item">
               <span className="meta-label">Focus</span>
-              <span className="meta-value">Cybersecurity &amp; Blockchain</span>
+              <span className="meta-value">Cybersecurity, Blockchain &amp; Electrical Control Systems </span>
             </div>
             <div className="meta-item">
               <span className="meta-label">Status</span>
