@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { useTheme } from '../ThemeContext'
 import { CERTIFICATE_PATHS } from '../constants'
 import './Navbar.css'
 
 const navLinks = [
-  { href: '#about', label: 'About' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#skills', label: 'Skills' },
-  { href: '#contact', label: 'Contact' },
+  { to: '/about', label: 'About' },
+  { to: '/experience', label: 'Experience' },
+  { to: '/skills', label: 'Skills' },
+  { to: '/certifications', label: 'Certifications' },
 ]
 
 const resumeLinks = [
@@ -31,19 +31,19 @@ export default function Navbar() {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-inner">
-        <a href="#hero" className="nav-logo">
+        <Link to="/" className="nav-logo" onClick={() => setMenuOpen(false)}>
           <span className="logo-bracket">[</span>
           <span className="logo-name">Hi! Yashodhan Here</span>
           <span className="logo-bracket">]</span>
           <span className="logo-cursor">_</span>
-        </a>
+        </Link>
 
         <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
           {navLinks.map((link) => (
-            <li key={link.href}>
-              <a href={link.href} onClick={() => setMenuOpen(false)}>
+            <li key={link.to}>
+              <Link to={link.to} onClick={() => setMenuOpen(false)}>
                 <span className="link-num">//</span> {link.label}
-              </a>
+              </Link>
             </li>
           ))}
 

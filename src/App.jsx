@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { ThemeProvider } from './ThemeContext'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -11,9 +12,14 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import './App.css'
 
-export default function App() {
+function PortfolioApp() {
   const cursorRef = useRef(null)
   const followerRef = useRef(null)
+  const location = useLocation()
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [location.pathname])
 
   useEffect(() => {
     const cursor = cursorRef.current
@@ -22,7 +28,6 @@ export default function App() {
     let followerX = 0, followerY = 0
     let animationFrameId = null
 
-    // Disable cursor effects on mobile devices
     const isMobile = window.matchMedia('(max-width: 768px)').matches
 
     const moveCursor = (e) => {
@@ -47,18 +52,16 @@ export default function App() {
       animateFollower()
     }
 
-    // Reveal on scroll
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible')
         }
       })
     }, { threshold: 0.1 })
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
 
-    // Cleanup function
     return () => {
       window.removeEventListener('mousemove', moveCursor)
       if (animationFrameId !== null) {
@@ -66,25 +69,36 @@ export default function App() {
       }
       observer.disconnect()
     }
-  }, [])
+  }, [location.pathname])
 
   return (
+    <>
+      <div className="cursor" ref={cursorRef} />
+      <div className="cursor-follower" ref={followerRef} />
+      <Navbar />
+      <main>
+        <Routes>
+          <Route path="/" element={<Hero />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/certifications" element={<Certificates />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </main>
+      <Footer />
+    </>
+  )
+}
+
+export default function App() {
+  return (
     <ThemeProvider>
-      <>
-        <div className="cursor" ref={cursorRef} />
-        <div className="cursor-follower" ref={followerRef} />
-        <Navbar />
-        <main>
-          <Hero />
-          <About />
-          <Experience />
-          <Projects />
-          <Skills />
-          <Certificates />
-          <Contact />
-        </main>
-        <Footer />
-      </>
+      <BrowserRouter>
+        <PortfolioApp />
+      </BrowserRouter>
     </ThemeProvider>
   )
 }

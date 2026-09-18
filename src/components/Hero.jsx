@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { CERTIFICATE_PATHS } from '../constants'
 import './Hero.css'
 
@@ -64,13 +65,13 @@ export default function Hero() {
           </p>
 
           <div className="hero-actions">
-            <a href="#projects" className="btn-primary">
+            <Link to="/projects" className="btn-primary">
               View Projects
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
-            </a>
-            <a href="#contact" className="btn-outline">Get In Touch</a>
+            </Link>
+            <Link to="/contact" className="btn-outline">Get In Touch</Link>
           </div>
 
           <div className="hero-socials">

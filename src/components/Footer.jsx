@@ -13,18 +13,6 @@ export default function Footer() {
             Building secure systems. Breaking insecure ones. 🔐
           </p>
         </div>
-
-        <div className="footer-center">
-          <p className="footer-built">
-            Built with <span className="heart">♥</span> using{' '}
-            <span className="tech-tag">React</span> +{' '}
-            <span className="tech-tag">Vite</span>
-          </p>
-          <p className="footer-copy">
-            © {new Date().getFullYear()} Yashodhan Zingade. All rights reserved.
-          </p>
-        </div>
-
         <div className="footer-right">
           <a href="https://github.com/iykuwk" target="_blank" rel="noreferrer" className="footer-social">
             <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
