@@ -54,9 +54,33 @@ const certs = [
     badgeUrl: 'https://www.credly.com/badges/30c58eef-461d-4221-ba22-84ab598c88e7/linked_in_profile',
     badgeImage: CERTIFICATE_PATHS.ethicalHackerBadge,
   },
+  {
+    title: 'Electrical Distribution, Automation & UPS',
+    issuer: 'Schneider Electric',
+    icon: '⚡',
+    color: 'green',
+    desc: 'Completed a pre-qualification assessment covering electrical distribution, industrial automation, and uninterruptible power supply systems.',
+    pdfUrl: CERTIFICATE_PATHS.schneiderPreQualification,
+  },
+  {
+    title: 'Energy Efficiency Fundamentals',
+    issuer: 'Schneider Electric University',
+    icon: '⚡',
+    color: 'blue',
+    desc: 'Completed Schneider Electric University training in energy efficiency fundamentals.',
+    pdfUrl: CERTIFICATE_PATHS.schneiderEnergyEfficiency,
+  },
+  {
+    title: 'Byte Lotus Competition',
+    issuer: 'TryHackMe',
+    icon: '🏆',
+    color: 'purple',
+    desc: 'Completed TryHackMe’s 14-day Byte Lotus competition, solving rooms and challenges throughout the event.',
+    pdfUrl: CERTIFICATE_PATHS.byteLotusCompetition,
+  },
 ]
 
-const openBadge = (url) => {
+const openCertificate = (url) => {
   if (url) {
     window.open(url, '_blank', 'noopener,noreferrer')
   }
@@ -77,28 +101,38 @@ export default function Certificates() {
               key={cert.title}
               className={`cert-card card reveal border-${cert.color}`}
               style={{ transitionDelay: `${i * 0.1}s` }}
-              onClick={() => openBadge(cert.badgeUrl)}
+              onClick={() => openCertificate(cert.badgeUrl || cert.pdfUrl)}
               onKeyDown={(e) => {
-                if ((e.key === 'Enter' || e.key === ' ') && cert.badgeUrl) {
+                if ((e.key === 'Enter' || e.key === ' ') && (cert.badgeUrl || cert.pdfUrl)) {
                   e.preventDefault()
-                  openBadge(cert.badgeUrl)
+                  openCertificate(cert.badgeUrl || cert.pdfUrl)
                 }
               }}
-              role={cert.badgeUrl ? 'link' : 'article'}
-              tabIndex={cert.badgeUrl ? 0 : -1}
-              aria-label={cert.badgeUrl ? `Open ${cert.title} certificate badge` : cert.title}
+              role={cert.badgeUrl || cert.pdfUrl ? 'link' : 'article'}
+              tabIndex={cert.badgeUrl || cert.pdfUrl ? 0 : -1}
+              aria-label={cert.badgeUrl || cert.pdfUrl ? `Open ${cert.title} certificate` : cert.title}
             >
               {cert.image && (
                 <div className="cert-image-container">
                   <img src={cert.image} alt={cert.title} className="cert-image" loading="lazy" />
                 </div>
               )}
+              {!cert.image && cert.pdfUrl && (
+                <div className="cert-image-container">
+                  <iframe
+                    src={`${cert.pdfUrl}#toolbar=0&navpanes=0&view=FitH`}
+                    title={`${cert.title} certificate preview`}
+                    loading="lazy"
+                    tabIndex={-1}
+                  />
+                </div>
+              )}
 
               <div className="cert-top">
                 <span className="cert-icon">{cert.icon}</span>
-                {cert.badgeUrl ? (
+                {cert.badgeUrl || cert.pdfUrl ? (
                   <a
-                    href={cert.badgeUrl}
+                    href={cert.badgeUrl || cert.pdfUrl}
                     target="_blank"
                     rel="noreferrer"
                     className={`tag tag-${cert.color}`}

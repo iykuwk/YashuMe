@@ -40,7 +40,7 @@ export function ThemeProvider({ children }) {
         '--form-input-color': '#202124',
         '--form-input-placeholder': '#70757a',
         '--form-input-focus-shadow': '0 0 0 3px #1a73e81a',
-        '--navbar-scrolled-bg': 'rgba(255, 255, 255, 0.96)',
+        '--navbar-scrolled-bg': 'rgba(248, 249, 250, 0.97)',
         '--footer-logo-color': '#202124',
       },
       dark: {
@@ -68,7 +68,7 @@ export function ThemeProvider({ children }) {
         '--form-input-color': '#e8eaed',
         '--form-input-placeholder': '#9aa0a6',
         '--form-input-focus-shadow': '0 0 0 3px #8ab4f81a',
-        '--navbar-scrolled-bg': 'rgba(32, 33, 36, 0.96)',
+        '--navbar-scrolled-bg': 'rgba(41, 42, 45, 0.97)',
         '--footer-logo-color': '#e8eaed',
       }
     }
