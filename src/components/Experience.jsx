@@ -27,6 +27,18 @@ const experiences = [
     ],
   },
   {
+    role: 'Financial Intern',
+    company: 'Yash Enterprises',
+    duration: 'May 2025 — Jul 2025',
+    type: 'Internship',
+    color: 'green',
+    github: null,
+    points: [
+      'Led daily financial bookkeeping, invoicing, GST compliance reporting, and transaction documentation for a construction materials supplier, improving financial reporting accuracy and turnaround time by 30%.',
+      'Utilized TallyPrime across a 3-month internship to maintain financial records and analyze recurring transactions involving cement, steel, and waterproofing materials at Yash Enterprises.',
+    ],
+  },
+  {
     role: 'Cyber-Security Analyst Intern',
     company: 'NullClass Pvt Ltd.',
     duration: 'Aug 2024 — Oct 2024',
