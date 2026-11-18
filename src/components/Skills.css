@@ -1,6 +1,6 @@
 .skills-section {
   padding: 7rem 2rem;
-  background: linear-gradient(180deg, transparent, #f0f2f530 30%, transparent);
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--bg-secondary) 55%, transparent) 30%, transparent);
   position: relative;
   z-index: 1;
 }

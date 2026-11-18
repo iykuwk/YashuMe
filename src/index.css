@@ -1,26 +1,24 @@
-/* 
-YASHU PORTFOLIO — Global Styles
-Aesthetic: Dark Terminal / Cyberpunk Minimal
- */
+/* Yashu portfolio global styles */
 
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
 
 :root {
-  --bg-primary: #f8f9fa;
-  --bg-secondary: #f0f2f5;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
   --bg-card: #ffffff;
-  --bg-card-hover: #f5f7fa;
-  --accent-green: #2e7d32;
-  --accent-blue: #1976d2;
-  --accent-purple: #7b1fa2;
-  --text-primary: #1a1a1a;
-  --text-secondary: #666666;
-  --text-muted: #999999;
-  --border: #e0e0e0;
-  --border-accent: #2e7d3220;
-  --glow-green: 0 0 20px #2e7d3233;
-  --glow-blue: 0 0 20px #1976d233;
-  --font-display: 'Syne', sans-serif;
+  --bg-card-hover: #f8f9fa;
+  --accent-green: #1a73e8;
+  --accent-blue: #1a73e8;
+  --accent-purple: #1a73e8;
+  --text-primary: #202124;
+  --text-secondary: #5f6368;
+  --text-muted: #70757a;
+  --border: #dadce0;
+  --border-accent: #1a73e81a;
+  --glow-green: 0 0 0 3px #1a73e81a;
+  --glow-blue: 0 0 0 3px #1a73e81a;
+  --font-display: 'Source Sans 3', sans-serif;
+  --font-body: 'Source Sans 3', sans-serif;
   --font-mono: 'Space Mono', monospace;
 }
 
@@ -38,7 +36,7 @@ html {
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   line-height: 1.7;
   overflow-x: hidden;
   cursor: none;
@@ -102,45 +100,23 @@ img, picture, video, svg, iframe {
 }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--bg-primary); }
-::-webkit-scrollbar-thumb { background: var(--accent-green); border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: var(--border); border: 2px solid var(--bg-primary); border-radius: 8px; }
 
 /* Selection */
 ::selection {
   background: var(--accent-green);
-  color: #ffffff;
+  color: var(--bg-primary);
 }
 
-/* Noise overlay */
+/* Keep the reading surface clear; section structure comes from content. */
 body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.08;
+  content: none;
 }
 
-/* Grid background */
 body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image:
-    linear-gradient(var(--border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
-  z-index: -1;
-  opacity: 0.3;
+  content: none;
 }
 
 /* Offset main content for fixed navbar */
@@ -184,8 +160,8 @@ a {
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 10px #00ff9d33; }
-  50%       { box-shadow: 0 0 30px #00ff9d88; }
+  0%, 100% { box-shadow: 0 0 8px var(--border-accent); }
+  50%       { box-shadow: 0 0 18px var(--border-accent); }
 }
 
 @keyframes float {

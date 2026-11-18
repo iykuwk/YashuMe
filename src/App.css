@@ -31,7 +31,7 @@
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 6px;
   padding: 1.8rem;
   transition: border-color 0.3s, background 0.3s, transform 0.3s;
 }
@@ -39,7 +39,7 @@
   border-color: var(--accent-green);
   background: var(--bg-card-hover);
   transform: translateY(-4px);
-  box-shadow: var(--glow-green);
+  box-shadow: 0 2px 8px rgba(32, 33, 36, 0.08);
 }
 
 /* Subtle pop for tags when their parent reveals */
@@ -99,7 +99,7 @@
   align-items: center;
   gap: 0.6rem;
   background: var(--accent-green);
-  color: #000000;
+  color: #ffffff;
   padding: 0.75rem 1.8rem;
   border-radius: 6px;
   font-family: var(--font-mono);
@@ -111,7 +111,7 @@
   letter-spacing: 0.05em;
 }
 .btn-primary:hover {
-  box-shadow: var(--glow-green);
+  box-shadow: 0 2px 8px rgba(26, 115, 232, 0.18);
   transform: translateY(-2px);
 }
 
@@ -147,27 +147,115 @@
 }
 
 .tag-green {
-  background: #2e7d3215;
+  background: var(--border-accent);
   color: var(--accent-green);
-  border: 1px solid #2e7d3240;
+  border: 1px solid var(--border);
 }
 
 .tag-blue {
-  background: #1976d215;
+  background: var(--border-accent);
   color: var(--accent-blue);
-  border: 1px solid #1976d240;
+  border: 1px solid var(--border);
 }
 
 .tag-purple {
-  background: #7b1fa215;
+  background: var(--border-accent);
   color: var(--accent-purple);
-  border: 1px solid #7b1fa240;
+  border: 1px solid var(--border);
 }
 
 /* ============= DIVIDER ============= */
 .divider {
   width: 60px;
   height: 2px;
-  background: linear-gradient(90deg, var(--accent-green), transparent);
+  background: var(--accent-green);
   margin: 1rem 0 2rem;
+}
+
+/* Content-first styling shared across the portfolio. */
+.section-label,
+.nav-links a,
+.nav-resume-btn,
+.theme-toggle,
+.meta-label,
+.meta-value,
+.stat-label,
+.interests-title,
+.prof-bar-label,
+.pc-duration,
+.pc-subtitle,
+.pc-toggle,
+.cli-label,
+.cli-value,
+.form-title,
+.form-label,
+.form-input,
+.footer-tagline,
+.footer-built,
+.footer-copy {
+  font-family: var(--font-body);
+  letter-spacing: normal;
+}
+
+.section-label {
+  text-transform: none;
+  font-size: 0.8rem;
+}
+
+.section-title::after {
+  background: var(--accent-green);
+}
+
+.btn-primary,
+.btn-outline {
+  border-radius: 4px;
+  font-family: var(--font-body);
+  letter-spacing: normal;
+}
+
+.btn-primary { color: var(--bg-primary); }
+
+.card,
+.about-meta,
+.stat-card,
+.prof-section,
+.contact-link-item,
+.contact-form,
+.ctf-banner,
+.project-card,
+.hero-terminal {
+  border-radius: 6px;
+  box-shadow: none;
+}
+
+.skills-section,
+.exp-section,
+.contact-section {
+  background: none;
+}
+
+.hero-bio,
+.about-desc,
+.contact-desc,
+.pc-desc,
+.ctf-desc,
+.comm-desc,
+.tc-points li,
+.pc-points li {
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.project-card::before,
+.prof-bar-fill {
+  background: var(--accent-green);
+}
+
+.pc-points {
+  background: var(--bg-secondary);
+}
+
+:where(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid var(--accent-green);
+  outline-offset: 3px;
 }

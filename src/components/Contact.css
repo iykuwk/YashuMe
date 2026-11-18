@@ -1,6 +1,6 @@
 .contact-section {
   padding: 7rem 2rem;
-  background: linear-gradient(180deg, transparent, #f0f2f540 40%, transparent);
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--bg-secondary) 55%, transparent) 40%, transparent);
   position: relative;
   z-index: 1;
 }
