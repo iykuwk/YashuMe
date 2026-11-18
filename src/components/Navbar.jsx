@@ -11,15 +11,9 @@ const navLinks = [
   { to: '/certifications', label: 'Certifications' },
 ]
 
-const resumeLinks = [
-  { label: 'Software', href: CERTIFICATE_PATHS.softwareCorePdf },
-  { label: 'Electrical', href: CERTIFICATE_PATHS.electricalCorePdf },
-]
-
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const [resumeOpen, setResumeOpen] = useState(false)
   const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
@@ -48,29 +42,15 @@ export default function Navbar() {
           ))}
 
           <li className="nav-resume">
-            <div className="resume-wrapper">
-              <button
-                type="button"
-                className="nav-resume-btn"
-                onClick={() => setResumeOpen((open) => !open)}
-                aria-haspopup="menu"
-                aria-expanded={resumeOpen}
-              >
-                Resume ↗
-              </button>
-
-              {resumeOpen && (
-                <ul className="resume-menu">
-                  {resumeLinks.map(({ label, href }) => (
-                    <li key={label}>
-                      <a href={href} target="_blank" rel="noreferrer" onClick={() => setResumeOpen(false)}>
-                        {label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+            <a
+              href={CERTIFICATE_PATHS.completeResumePdf}
+              target="_blank"
+              rel="noreferrer"
+              className="nav-resume-btn"
+              onClick={() => setMenuOpen(false)}
+            >
+              Resume ↗
+            </a>
           </li>
 
           <li>

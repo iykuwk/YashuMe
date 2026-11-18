@@ -6,8 +6,7 @@ export const CERTIFICATE_PATHS = {
   ethicalHackerBadge: '/certificates/badges/ethicalhacker-cisco-badge.svg',
   thmCertificate0: '/certificates/SEC0-THM Certificate.jpg',
   thmCertificate1: '/certificates/SEC1-THM_Certificate.jpg',
-  softwareCorePdf: '/certificates/Software_Core.pdf',
-  electricalCorePdf: '/certificates/Electrical_core.pdf',
+  completeResumePdf: '/certificates/Complete__Resume.pdf',
   lifiApplicationsPdf: '/certificates/LIFI%20APPLICATIONS.pdf',
   profilePhoto: '/certificates/profile_photo.png',
 }
